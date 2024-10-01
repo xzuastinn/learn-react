@@ -1,9 +1,10 @@
 import { ItemProps } from "@/types/item";
+import React from "react";
 
-function Item({ name, isPacked } : ItemProps) {
+function Item({ name, isPacked }: ItemProps) {
   return (
     <li className="item">
-      {name}
+      {isPacked ? <del>{name}</del> : name}
     </li>
   );
 }
