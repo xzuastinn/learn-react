@@ -1,6 +1,10 @@
 ## Personal Information:
 
+<<<<<<< HEAD
 Full Name: Zachary Coates 
+=======
+Full Name: Zachary Coates
+>>>>>>> 09a36240f5f38ffa0a6d7477b6d1ef8f5aed4f9a
 
 ## Getting Started
 First, fork this repository and clone it to your local machine.
