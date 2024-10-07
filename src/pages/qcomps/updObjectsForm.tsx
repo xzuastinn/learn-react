@@ -8,18 +8,27 @@ export default function Scoreboard() {
   });
 
   function handlePlusClick() {
-    player.likescore++;
+    // Use setPlayer to update the likescore immutably
+    setPlayer(prevPlayer => ({
+      ...prevPlayer,
+      likescore: prevPlayer.likescore + 1,
+    }));
   }
 
   function handleFirstNameChange(e: { target: { value: string; }; }) {
-    setPlayer({
-      ...player,
+    // Use setPlayer to immutably update the firstName
+    setPlayer(prevPlayer => ({
+      ...prevPlayer,
       firstName: e.target.value,
-    });
+    }));
   }
 
   function handleLastNameChange(e: { target: { value: string; }; }) {
-    player.lastName = e.target.value;
+    // Use setPlayer to immutably update the lastName
+    setPlayer(prevPlayer => ({
+      ...prevPlayer,
+      lastName: e.target.value,
+    }));
   }
 
   return (

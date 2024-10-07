@@ -5,10 +5,10 @@ export default function RequestTracker() {
   const [completed, setCompleted] = useState(0);
 
   async function handleClick() {
-    setPending(pending + 1);
+    setPending(prevPending => prevPending + 1); // Use functional form
     await delay(3000);
-    setPending(pending - 1);
-    setCompleted(completed + 1);
+    setPending(prevPending => prevPending - 1); // Ensure correct update
+    setCompleted(prevCompleted => prevCompleted + 1); // Ensure correct update
   }
 
   return (

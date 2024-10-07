@@ -9,27 +9,26 @@ const initialList = [
 ];
 
 export default function BucketList() {
-  const [myList, setMyList] = useState(initialList);
-  const [yourList, setYourList] = useState(
-    initialList
-  );
+  // Make independent copies of the initial list for each state
+  const [myList, setMyList] = useState([...initialList]);
+  const [yourList, setYourList] = useState([...initialList]);
 
   function handleToggleMyList(artworkId: number, nextSeen: boolean) {
     const tmpList = myList.map(e => {
-        if (e.id === artworkId) {
-            e.seen = nextSeen
-        }
-        return e
+      if (e.id === artworkId) {
+        return { ...e, seen: nextSeen };  // Immutable update
+      }
+      return e;
     });
     setMyList(tmpList);
   }
 
   function handleToggleYourList(artworkId: number, nextSeen: boolean) {
     const tmpList = yourList.map(e => {
-        if (e.id === artworkId) {
-            e.seen = nextSeen
-        }
-        return e
+      if (e.id === artworkId) {
+        return { ...e, seen: nextSeen };  // Immutable update
+      }
+      return e;
     });
     setYourList(tmpList);
   }
